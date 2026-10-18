@@ -1,0 +1,924 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickCart | Fresh Groceries Delivered Fast</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f8faf7;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            box-shadow: 0 2px 12px #0000000c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            padding: 17px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: #168b36;
+            font-size: 28px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo i {
+            margin-right: 7px;
+        }
+
+        .location {
+            font-size: 13px;
+            color: #666;
+            min-width: 130px;
+        }
+
+        .location strong {
+            display: block;
+            color: #222;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f4f5f2;
+            border: 1px solid #e7e9e4;
+            padding: 12px 15px;
+            border-radius: 12px;
+            flex: 1;
+            max-width: 440px;
+        }
+
+        .search-box i {
+            color: #777;
+        }
+
+        .search-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            padding: 11px 15px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #168b36;
+            background: white;
+            color: #168b36;
+            white-space: nowrap;
+        }
+
+        .cart-btn {
+            background: #168b36;
+            color: white;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1200px;
+            margin: 28px auto;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            min-height: 350px;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e4f6d8;
+        }
+
+        .hero-text {
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .offer-label {
+            background: #d1f0c4;
+            color: #176c2b;
+            border-radius: 30px;
+            padding: 9px 15px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 4vw, 51px);
+            line-height: 1.13;
+            margin-bottom: 16px;
+            color: #173c20;
+        }
+
+        .hero h1 span {
+            color: #168b36;
+        }
+
+        .hero p {
+            line-height: 1.7;
+            color: #536553;
+            margin-bottom: 24px;
+            max-width: 430px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            background: #168b36;
+            color: white;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .primary-btn:hover {
+            background: #106d29;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            min-height: 350px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* BENEFITS */
+        .benefits {
+            max-width: 1160px;
+            margin: 35px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 18px #00000006;
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: #e5f7df;
+            color: #168b36;
+            display: grid;
+            place-items: center;
+            font-size: 21px;
+            flex-shrink: 0;
+        }
+
+        .benefit h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .benefit p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* CATEGORIES */
+        .section {
+            max-width: 1200px;
+            margin: 55px auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 27px;
+            color: #202820;
+        }
+
+        .section-heading p {
+            color: #777;
+            font-size: 14px;
+            margin-top: 7px;
+        }
+
+        .view-all {
+            color: #168b36;
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 18px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid #edf0ea;
+            transition: 0.25s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px #00000010;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 125px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .category-card h3 {
+            padding: 15px 5px;
+            font-size: 14px;
+        }
+
+        /* FEATURE BANNER */
+        .offer-banner {
+            max-width: 1160px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .offer-inner {
+            border-radius: 20px;
+            background: #fff0d8;
+            padding: 30px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .offer-inner h2 {
+            color: #744213;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .offer-inner p {
+            color: #805f3c;
+            line-height: 1.6;
+        }
+
+        .offer-inner .primary-btn {
+            background: #e98521;
+            white-space: nowrap;
+        }
+
+        /* POPULAR ITEMS */
+        .products-preview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #edf0ea;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.25s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px #0000000d;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            background: #f1f3ee;
+        }
+
+        .product-info {
+            padding: 17px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            background: #e9f7e5;
+            color: #168b36;
+            border: 1px solid #168b36;
+            border-radius: 8px;
+            padding: 9px 13px;
+            font-weight: bold;
+        }
+
+        .add-btn:hover {
+            background: #168b36;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #173c24;
+            color: white;
+            margin-top: 60px;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1160px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-logo {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            color: #d3e2d4;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #d3e2d4;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1160px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #ffffff25;
+            text-align: center;
+            color: #d3e2d4;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .search-box {
+                order: 5;
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .products-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-text {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 14px;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .location {
+                display: none;
+            }
+
+            .nav-actions {
+                gap: 7px;
+            }
+
+            .nav-btn {
+                padding: 9px;
+                font-size: 12px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                padding: 28px 23px;
+            }
+
+            .hero-image,
+            .hero-image img {
+                min-height: 220px;
+                height: 220px;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 22px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .category-card img {
+                height: 115px;
+            }
+
+            .offer-inner {
+                padding: 25px 20px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .offer-inner h2 {
+                font-size: 23px;
+            }
+
+            .products-preview {
+                gap: 12px;
+            }
+
+            .product-card img {
+                height: 135px;
+            }
+
+            .product-info {
+                padding: 12px;
+            }
+
+            .product-info h3 {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 15px;
+            }
+
+            .add-btn {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-basket-shopping"></i>QuickCart
+            </a>
+
+            <div class="location">
+                <i class="fa-solid fa-location-dot"></i> Deliver to
+                <strong>Your Location</strong>
+            </div>
+
+            <form class="search-box" id="searchForm">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="searchInput"
+                       placeholder="Search for groceries..." aria-label="Search groceries">
+            </form>
+
+            <div class="nav-actions">
+                <a href="login.html" class="nav-btn">
+                    <i class="fa-regular fa-user"></i> Login
+                </a>
+
+                <a href="cart.html" class="nav-btn cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Cart <span id="cartCount">0</span>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+
+                <div class="hero-text">
+                    <div class="offer-label">
+                        <i class="fa-solid fa-bolt"></i>
+                        FRESHNESS AT YOUR DOORSTEP
+                    </div>
+
+                    <h1>Fresh groceries,<br>
+                        <span>delivered fast!</span>
+                    </h1>
+
+                    <p>
+                        Fruits, vegetables, dairy and daily essentials —
+                        everything you need, delivered straight to your home.
+                    </p>
+
+                    <a href="products.html" class="primary-btn">
+                        Shop Now <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="hero-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=85"
+                        alt="Fresh fruits and vegetables at a grocery market"
+                        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80';">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits">
+
+            <div class="benefit">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h3>Fast Delivery</h3>
+                    <p>Your daily essentials at your doorstep.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div>
+                    <h3>Fresh Products</h3>
+                    <p>Fresh picks for your everyday needs.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <div>
+                    <h3>Great Prices</h3>
+                    <p>Shop smart and save on essentials.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Shop by Category</h2>
+                    <p>Find your everyday favourites</p>
+                </div>
+
+                <a href="products.html" class="view-all">
+                    View All <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="categories">
+
+                <a href="products.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=500&q=80"
+                         alt="Fresh fruits" loading="lazy">
+                    <h3>Fresh Fruits</h3>
+                </a>
+
+                <a href="products.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80"
+                         alt="Fresh vegetables" loading="lazy">
+                    <h3>Vegetables</h3>
+                </a>
+
+                <a href="products.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=500&q=80"
+                         alt="Milk and dairy products" loading="lazy">
+                    <h3>Dairy Products</h3>
+                </a>
+
+                <a href="products.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80"
+                         alt="Cookies and snacks" loading="lazy">
+                    <h3>Snacks</h3>
+                </a>
+
+                <a href="products.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=500&q=80"
+                         alt="Fresh juice" loading="lazy">
+                    <h3>Juices & Drinks</h3>
+                </a>
+
+                <a href="products.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80"
+                         alt="Freshly baked bread" loading="lazy">
+                    <h3>Bakery</h3>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- OFFER BANNER -->
+        <section class="offer-banner">
+            <div class="offer-inner">
+                <div>
+                    <h2><i class="fa-solid fa-tags"></i> Your daily needs, all in one place!</h2>
+                    <p>Explore fresh produce, tasty snacks and household essentials.</p>
+                </div>
+
+                <a href="products.html" class="primary-btn">
+                    Explore Products
+                </a>
+            </div>
+        </section>
+
+        <!-- POPULAR PRODUCTS -->
+        <section class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Popular Picks</h2>
+                    <p>Fresh favourites for your shopping basket</p>
+                </div>
+
+                <a href="products.html" class="view-all">
+                    See All Products <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="products-preview">
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80"
+                         alt="Fresh red apples" loading="lazy">
+
+                    <div class="product-info">
+                        <h3>Fresh Apples</h3>
+                        <p>Fresh and crunchy</p>
+                        <div class="product-bottom">
+                            <span class="price">₹100</span>
+                            <button class="add-btn" onclick="openProducts()">
+                                Shop <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80"
+                         alt="Fresh bananas" loading="lazy">
+
+                    <div class="product-info">
+                        <h3>Bananas</h3>
+                        <p>Sweet and nutritious</p>
+                        <div class="product-bottom">
+                            <span class="price">₹50</span>
+                            <button class="add-btn" onclick="openProducts()">
+                                Shop <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=600&q=80"
+                         alt="Fresh red tomatoes" loading="lazy">
+
+                    <div class="product-info">
+                        <h3>Fresh Tomatoes</h3>
+                        <p>Fresh kitchen essentials</p>
+                        <div class="product-bottom">
+                            <span class="price">₹30</span>
+                            <button class="add-btn" onclick="openProducts()">
+                                Shop <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80"
+                         alt="Fresh milk" loading="lazy">
+
+                    <div class="product-info">
+                        <h3>Fresh Milk</h3>
+                        <p>Everyday dairy essential</p>
+                        <div class="product-bottom">
+                            <span class="price">₹60</span>
+                            <button class="add-btn" onclick="openProducts()">
+                                Shop <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+
+            <div>
+                <div class="footer-logo">
+                    <i class="fa-solid fa-basket-shopping"></i> QuickCart
+                </div>
+                <p>
+                    Your trusted destination for fresh groceries and daily
+                    essentials. Shop conveniently and bring freshness home.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">My Cart</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Customer Support</h3>
+                <a href="products.html">Shop Groceries</a>
+                <a href="signup.html">Create Account</a>
+                <a href="checkout.html">Checkout</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 QuickCart. All rights reserved. Made with
+            <i class="fa-solid fa-heart"></i> for fresh living.
+        </div>
+    </footer>
+
+    <script>
+        // Open the existing products page
+        function openProducts() {
+            window.location.href = "products.html";
+        }
+
+        // Search on home page: open products page with search text
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const searchText = document.getElementById("searchInput").value.trim();
+
+            if (searchText !== "") {
+                window.location.href =
+                    "products.html?search=" + encodeURIComponent(searchText);
+            } else {
+                window.location.href = "products.html";
+            }
+        });
+
+        // Show cart quantity saved by the existing QuickCart script
+        function refreshCartCount() {
+            try {
+                const cart = JSON.parse(localStorage.getItem("quickCart")) || [];
+                const count = cart.reduce(function(total, item) {
+                    return total + (Number(item.quantity) || 1);
+                }, 0);
+
+                document.getElementById("cartCount").textContent = count;
+            } catch (error) {
+                document.getElementById("cartCount").textContent = "0";
+            }
+        }
+
+        refreshCartCount();
+    </script>
+
+</body>
+</html>
