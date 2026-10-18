@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickCart | Checkout</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7f2;font-family:Arial,sans-serif;color:#222}
+header{background:#168b35;color:white;padding:18px 6%;display:flex;
+justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header a{color:white;text-decoration:none;font-weight:bold}
+main{max-width:1100px;margin:30px auto;padding:0 16px}
+h1{color:#168b35}
+.layout{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+.card{background:white;padding:24px;border-radius:14px;
+box-shadow:0 3px 15px #0000000c;margin-bottom:20px}
+label{display:block;font-weight:bold;margin:13px 0 6px}
+input,textarea{width:100%;padding:12px;border:1px solid #ccc;
+border-radius:8px;font:inherit}
+textarea{min-height:80px;resize:vertical}
+.payment{display:flex;gap:9px;align-items:center;margin:13px 0}
+.payment input{width:auto}
+.product-row{display:flex;justify-content:space-between;gap:12px;
+padding:12px 0;border-bottom:1px solid #eee}
+.total-row{display:flex;justify-content:space-between;margin:14px 0}
+.grand{font-size:21px;font-weight:bold;color:#168b35}
+button{width:100%;padding:14px;background:#168b35;color:white;
+border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer}
+button:hover{background:#106b29}
+.note{color:#666;font-size:13px}
+.error{color:#b00020}
+@media(max-width:720px){.layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index1.html"><i class="fa-solid fa-basket-shopping"></i> QuickCart</a>
+  <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Back to Cart</a>
+</header>
+
+<main>
+<h1><i class="fa-solid fa-credit-card"></i> Checkout</h1>
+<p>Enter your delivery details and confirm your order.</p>
+
+<div id="message" role="status"></div>
+
+<div class="layout">
+<section>
+<div class="card">
+<h2>Delivery Information</h2>
+
+<form id="checkoutForm">
+<label for="customerName">Full Name</label>
+<input id="customerName" name="customerName" required
+autocomplete="name" placeholder="Enter your full name">
+
+<label for="mobile">Mobile Number</label>
+<input id="mobile" name="mobile" type="tel" required
+inputmode="numeric" pattern="[0-9]{10}" maxlength="10"
+autocomplete="tel" placeholder="10-digit mobile number">
+
+<label for="address">Full Delivery Address</label>
+<textarea id="address" name="address" required
+autocomplete="street-address" placeholder="House no., street, area"></textarea>
+
+<label for="city">City</label>
+<input id="city" name="city" required autocomplete="address-level2"
+placeholder="Enter your city">
+
+<label for="pincode">PIN Code</label>
+<input id="pincode" name="pincode" required inputmode="numeric"
+pattern="[0-9]{6}" maxlength="6" autocomplete="postal-code"
+placeholder="6-digit PIN code">
+
+<h2>Payment Method</h2>
+<label class="payment">
+<input type="radio" name="payment" value="cod" checked>
+Cash on Delivery
+</label>
+<label class="payment">
+<input type="radio" name="payment" value="upi">
+UPI
+</label>
+<label class="payment">
+<input type="radio" name="payment" value="card">
+Credit / Debit Card
+</label>
+
+<p class="note">Demo project: UPI and card payments are not actually processed.</p>
+<button type="submit" id="placeOrderBtn">
+<i class="fa-solid fa-check"></i> Place Order
+</button>
+</form>
+</div>
+</section>
+
+<aside>
+<div class="card">
+<h2>Product Summary</h2>
+<div id="checkoutItems">Loading products...</div>
+<hr>
+<div class="total-row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+<div class="total-row"><span>Delivery Charge</span><strong id="delivery">₹0</strong></div>
+<div class="total-row"><span>Discount</span><strong id="discount">₹0</strong></div>
+<hr>
+<div class="total-row grand"><span>Total</span><span id="total">₹0</span></div>
+</div>
+</aside>
+</div>
+</main>
+
+<script>
+(() => {
+  const itemsBox = document.getElementById("checkoutItems");
+  const form = document.getElementById("checkoutForm");
+  const message = document.getElementById("message");
+  const button = document.getElementById("placeOrderBtn");
+
+  let cart = [];
+
+  function readCart() {
+    try {
+      const data = JSON.parse(localStorage.getItem("quickCart") || "[]");
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  // Supports common cart formats: name/price/quantity or
+  // title/price/qty. Invalid entries are ignored.
+  function normalizeCart() {
+    return readCart().map(item => {
+      const name = String(item.name || item.title || item.productName || "");
+      const price = Number(item.price ?? item.amount);
+      const quantity = Number(item.quantity ?? item.qty ?? item.count ?? 1);
+
+      if (!name || !Number.isFinite(price) || price < 0 ||
+          !Number.isInteger(quantity) || quantity < 1) return null;
+
+      return { name, price, quantity };
+    }).filter(Boolean);
+  }
+
+  function money(value) {
+    return "₹" + value.toFixed(2).replace(/\.00$/, "");
+  }
+
+  function showMessage(text, isError = true) {
+    message.textContent = text;
+    message.className = isError ? "error" : "";
+  }
+
+  function renderSummary() {
+    cart = normalizeCart();
+    itemsBox.replaceChildren();
+
+    if (cart.length === 0) {
+      itemsBox.textContent = "Your cart is empty. Please add products first.";
+      button.disabled = true;
+      button.style.opacity = "0.6";
+      document.getElementById("subtotal").textContent = money(0);
+      document.getElementById("delivery").textContent = money(0);
+      document.getElementById("discount").textContent = money(0);
+      document.getElementById("total").textContent = money(0);
+      return;
+    }
+
+    button.disabled = false;
+    button.style.opacity = "1";
+
+    cart.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "product-row";
+
+      const name = document.createElement("span");
+      name.textContent = item.name + " × " + item.quantity;
+
+      const price = document.createElement("strong");
+      price.textContent = money(item.price * item.quantity);
+
+      row.append(name, price);
+      itemsBox.appendChild(row);
+    });
+
+    const subtotal = cart.reduce((sum, item) =>
+      sum + item.price * item.quantity, 0);
+    const delivery = subtotal > 0 && subtotal < 300 ? 30 : 0;
+    const discount = subtotal >= 500 ? 50 : 0;
+
+    document.getElementById("subtotal").textContent = money(subtotal);
+    document.getElementById("delivery").textContent = money(delivery);
+    document.getElementById("discount").textContent = money(discount);
+    document.getElementById("total").textContent =
+      money(subtotal + delivery - discount);
+  }
+
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    showMessage("");
+
+    cart = normalizeCart();
+    if (!cart.length) {
+      showMessage("Your cart is empty. Go back and add products.");
+      return;
+    }
+
+    if (!form.reportValidity()) return;
+
+    const subtotal = cart.reduce((sum, item) =>
+      sum + item.price * item.quantity, 0);
+    const delivery = subtotal > 0 && subtotal < 300 ? 30 : 0;
+    const discount = subtotal >= 500 ? 50 : 0;
+
+    const order = {
+      orderId: "QC" + Date.now(),
+      customerName: document.getElementById("customerName").value.trim(),
+      mobile: document.getElementById("mobile").value.trim(),
+      address: document.getElementById("address").value.trim(),
+      city: document.getElementById("city").value.trim(),
+      pincode: document.getElementById("pincode").value.trim(),
+      paymentMethod: form.querySelector('input[name="payment"]:checked').value,
+      items: cart,
+      subtotal,
+      delivery,
+      discount,
+      total: subtotal + delivery - discount,
+      orderDate: new Date().toLocaleString("en-IN")
+    };
+
+    button.disabled = true;
+    button.textContent = "Placing Order...";
+
+    try {
+      // Save locally first, so the demo receipt can be shown.
+      localStorage.setItem("quickCartOrder", JSON.stringify(order));
+
+      // Attempt backend save. If unavailable, keep the local demo order.
+      let backendSaved = false;
+      try {
+        const response = await fetch("http://localhost:3000/api/orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(order)
+        });
+        backendSaved = response.ok;
+      } catch (error) {
+        backendSaved = false;
+      }
+
+      order.backendSaved = backendSaved;
+      localStorage.setItem("quickCartOrder", JSON.stringify(order));
+      localStorage.removeItem("quickCart");
+
+      // The receipt page reads quickCartOrder from localStorage.
+      window.location.href = "order-success.html";
+    } catch (error) {
+      showMessage("Order save nahi hua. Please try again.");
+      button.disabled = false;
+      button.innerHTML = '<i class="fa-solid fa-check"></i> Place Order';
+    }
+  });
+
+  renderSummary();
+})();
+</script>
+</body>
+</html>
