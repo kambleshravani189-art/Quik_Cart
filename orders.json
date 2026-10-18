@@ -1,0 +1,608 @@
+[
+  {
+    "orderId": "QC1792061557034",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "7588625778",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Tomatoes",
+        "price": 50,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Carrots",
+        "price": 45,
+        "quantity": 1
+      }
+    ],
+    "total": 185,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-15T10:52:37.036Z"
+  },
+  {
+    "orderId": "QC1792061674726",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "total": 150,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-15T10:54:34.726Z"
+  },
+  {
+    "orderId": "QC1792061752769",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Tomatoes",
+        "price": 50,
+        "quantity": 1
+      }
+    ],
+    "total": 140,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-15T10:55:52.769Z"
+  },
+  {
+    "orderId": "QC1792063751697",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Milk",
+        "price": 60,
+        "quantity": 1
+      }
+    ],
+    "total": 130,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-15T11:29:11.697Z"
+  },
+  {
+    "orderId": "QC1792263812471",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Tomatoes",
+        "price": 50,
+        "quantity": 1
+      }
+    ],
+    "total": 140,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-17T19:03:32.471Z"
+  },
+  {
+    "orderId": "QC1792267826451",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "total": 150,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-17T20:10:26.451Z"
+  },
+  {
+    "orderId": "QC1792268034595",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "7588625778",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "total": 150,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-17T20:13:54.595Z"
+  },
+  {
+    "orderId": "QC1792316598912",
+    "customerName": "nikita taanaji bhosle",
+    "mobile": "9890988617",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Milk",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      }
+    ],
+    "total": 140,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T09:43:18.912Z"
+  },
+  {
+    "orderId": "QC1792317375181",
+    "customerName": "nikita taanaji bhosle",
+    "mobile": "9890988617",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Apples",
+        "price": 120,
+        "quantity": 1
+      },
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      }
+    ],
+    "total": 180,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T09:56:15.181Z"
+  },
+  {
+    "orderId": "QC1792318455615",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Apples",
+        "price": 120,
+        "quantity": 1
+      },
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      }
+    ],
+    "total": 180,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T10:14:15.615Z"
+  },
+  {
+    "orderId": "QC1792318900073",
+    "customerName": "nikita taanaji bhosle",
+    "mobile": "9890988617",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Tomatoes",
+        "price": 50,
+        "quantity": 1
+      }
+    ],
+    "total": 200,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T10:21:40.073Z"
+  },
+  {
+    "orderId": "QC1792319206683",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Tomatoes",
+        "price": 50,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Apples",
+        "price": 120,
+        "quantity": 1
+      }
+    ],
+    "total": 320,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T10:26:46.683Z"
+  },
+  {
+    "orderId": "QC1792322950666",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Tomatoes",
+        "price": 50,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Apples",
+        "price": 120,
+        "quantity": 2
+      }
+    ],
+    "total": 440,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T11:29:10.666Z"
+  },
+  {
+    "orderId": "QC1792325667836",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "total": 150,
+    "paymentMethod": "cod",
+    "status": "Placed",
+    "createdAt": "2026-10-18T12:14:27.836Z"
+  },
+  {
+    "orderId": "QC828730",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Milk",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T13:54:43.196Z"
+  },
+  {
+    "orderId": "QC405564",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T13:57:09.896Z"
+  },
+  {
+    "orderId": "QC578610",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Milk",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T14:32:04.903Z"
+  },
+  {
+    "orderId": "QC353752",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T14:34:33.047Z"
+  },
+  {
+    "orderId": "QC243393",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      },
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T14:36:17.813Z"
+  },
+  {
+    "orderId": "QC585325",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T14:37:18.199Z"
+  },
+  {
+    "orderId": "QC718775",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T14:58:14.693Z"
+  },
+  {
+    "orderId": "QC314509",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043, PUNE, PIN: 411043",
+    "items": [
+      {
+        "name": "Bananas",
+        "price": 60,
+        "quantity": 2
+      },
+      {
+        "name": "Oranges",
+        "price": 90,
+        "quantity": 1
+      }
+    ],
+    "paymentMethod": "cod",
+    "date": "2026-10-18T14:58:44.248Z"
+  },
+  {
+    "orderId": "QC1792337343948",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043",
+    "city": "PUNE",
+    "pincode": "411043",
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "name": "Cheese",
+        "price": 110,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Milk",
+        "price": 60,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 170,
+    "delivery": 30,
+    "discount": 0,
+    "total": 200,
+    "orderDate": "18/10/2026, 8:59:03 pm",
+    "date": "2026-10-18T15:29:04.086Z"
+  },
+  {
+    "orderId": "QC1792337584785",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043",
+    "city": "PUNE",
+    "pincode": "411043",
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      },
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 150,
+    "delivery": 30,
+    "discount": 0,
+    "total": 180,
+    "orderDate": "18/10/2026, 9:03:04 pm",
+    "date": "2026-10-18T15:33:04.873Z"
+  },
+  {
+    "orderId": "QC1792337787090",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043",
+    "city": "PUNE",
+    "pincode": "411043",
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "name": "Chocolate Cookies",
+        "price": 80,
+        "quantity": 1
+      },
+      {
+        "name": "Fresh Broccoli",
+        "price": 70,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 150,
+    "delivery": 30,
+    "discount": 0,
+    "total": 180,
+    "orderDate": "18/10/2026, 9:06:27 pm",
+    "date": "2026-10-18T15:36:27.195Z"
+  },
+  {
+    "orderId": "QC1792341006123",
+    "customerName": "SHRAVANI ANIL KAMBLE",
+    "mobile": "9822007493",
+    "address": "plot 83 near pawar hospital balaji ngar dhankawadi pune 411043",
+    "city": "PUNE",
+    "pincode": "411043",
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "name": "Fresh Eggs",
+        "price": 60,
+        "quantity": 1
+      },
+      {
+        "name": "Natural Honey",
+        "price": 180,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 240,
+    "delivery": 30,
+    "discount": 0,
+    "total": 270,
+    "orderDate": "18/10/2026, 10:00:06 pm",
+    "date": "2026-10-18T16:30:06.291Z"
+  }
+]
