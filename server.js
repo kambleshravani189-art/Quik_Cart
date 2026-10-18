@@ -5,7 +5,7 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const usersFile = path.join(__dirname, "users.json");
 const ordersFile = path.join(__dirname, "orders.json");
@@ -270,10 +270,6 @@ app.get("/api/orders", (req, res) => {
     }
 });
 
-// ---------- START SERVER ----------
-app.listen(PORT, () => {
-    console.log("==============================");
-    console.log("QuickCart Backend");
-    console.log(`Server running at http://localhost:${PORT}`);
-    console.log("==============================");
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`QuickCart Backend running on port ${PORT}`);
 });
