@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>QuickCart | My Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-basket-shopping"></i>
+
+        QuickCart
+
+    </div>
+
+
+    <div class="location">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <div>
+
+            <small>Deliver to</small>
+
+            <b>Your Location</b>
+
+        </div>
+
+    </div>
+
+
+    <div class="search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            placeholder="Search for products..."
+            onclick="location.href='products.html'"
+        >
+
+    </div>
+
+
+    <a href="login.html" class="login">
+
+        <i class="fa-regular fa-user"></i>
+
+        Login
+
+    </a>
+
+
+    <a href="cart.html" class="cart">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        Cart
+
+        <span id="cartCount">0</span>
+
+    </a>
+
+</header>
+
+
+
+<!-- ================= CART ================= -->
+
+<main class="cart-page">
+
+
+    <div class="cart-heading">
+
+        <h1>
+            My Cart 🛒
+        </h1>
+
+        <a href="products.html">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Continue Shopping
+
+        </a>
+
+    </div>
+
+
+
+    <div class="cart-layout">
+
+
+        <!-- ================= CART ITEMS ================= -->
+
+        <section class="cart-items-section">
+
+
+            <div id="cartItems">
+
+                <!-- JavaScript will add products here -->
+
+            </div>
+
+
+            <!-- EMPTY CART -->
+
+            <div id="emptyCart"
+                 class="empty-cart">
+
+                <div class="empty-icon">
+                    🛒
+                </div>
+
+                <h2>
+                    Your cart is empty
+                </h2>
+
+                <p>
+                    Add some delicious groceries to your cart.
+                </p>
+
+                <a href="products.html"
+                   class="shop-button">
+
+                    Start Shopping
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= ORDER SUMMARY ================= -->
+
+        <aside class="order-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery Fee
+                </span>
+
+                <strong id="deliveryFee">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row discount-row">
+
+                <span>
+                    Discount
+                </span>
+
+                <strong id="discount">
+                    - ₹0
+                </strong>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="total">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-btn"
+                id="checkoutBtn"
+                onclick="checkout()">
+
+                Proceed to Checkout
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+            <div class="safe-shopping">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Safe and secure checkout
+                </span>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        🛒 QuickCart
+    </h2>
+
+    <p>
+        Your everyday grocery delivery partner.
+    </p>
+
+
+    <div class="social">
+
+        <i class="fa-brands fa-instagram"></i>
+
+        <i class="fa-brands fa-facebook"></i>
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </div>
+
+
+    <p>
+        © 2026 QuickCart
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
